@@ -13,8 +13,8 @@ Scenario: Search for hotels using specified search options
 	Then verifies that <HotelName> should appear in search results depending on IsListed is true or false <IsListed>
 
 	Examples:
-		| SelectFilter            | HotelName             | IsListed |
-		| 5 Star                  | The Savoy Hotel       | True     |
-		| 5 Star                  | George Limerick Hotel | False    |
+		| SelectFilter            | HotelName              | IsListed |
+		| 5 Star                  | The Savoy Hotel        | True     |
+		| 5 Star                  | George Limerick Hotel  | False    |
 		| Spa and wellness centre | Clayton Hotel Limerick | True     |
-		| Spa and wellness centre | George Limerick Hotel | False    |
+		| Spa and wellness centre | George Limerick Hotel  | False    |

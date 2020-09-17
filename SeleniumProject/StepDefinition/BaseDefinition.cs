@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using SeleniumProject.ComponentHelper;
 using SeleniumProject.Configuration;
 using SeleniumProject.CustomException;
@@ -15,7 +14,6 @@ using WebDriverManager.DriverConfigs.Impl;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Gherkin.Model;
-using OpenQA.Selenium.Edge;
 using SeleniumProject.PageObject;
 using System.IO;
 
@@ -150,12 +148,6 @@ namespace SeleniumProject.BaseClasses
                 case BrowserType.Chrome:
                     ObjectRepository.Driver = GetChromeDriver();
                     break;
-                //case BrowserType.IExplorer:
-                //    ObjectRepository.Driver = GetIExplorerDriver();
-                //    break;
-                //case BrowserType.Edge:
-                //    ObjectRepository.Driver = GetEdgeDriver();
-                //    break;
                 default:
                     throw new NoSuitableDriverFoundException($"Driver not found: {ObjectRepository.Config.GetBrowser()}");
             }
@@ -169,17 +161,14 @@ namespace SeleniumProject.BaseClasses
         private static void SetupExtentReports()
         {
             _extentHtmlReporter = new ExtentHtmlReporter("TestResults.html");
+            _extentHtmlReporter.LoadConfig("extent-config.xml");
             _extentReports = new ExtentReports();
             _extentReports.AttachReporter(_extentHtmlReporter);
         }
 
-
-
-
-
         private static IWebDriver GetFirefoxDriver()
         {
-            //Custom profile with cookis for booking. com
+            //Custom profile with cookies for booking. com
 
             //FirefoxProfile profile = new FirefoxProfile(@"\\BrowserProfiles\\Firefox");
             //FirefoxOptions options = new FirefoxOptions
@@ -187,8 +176,6 @@ namespace SeleniumProject.BaseClasses
             //   Profile = profile,
             //   PageLoadStrategy = PageLoadStrategy.Eager
             //};
-
-           
 
             new DriverManager().SetUpDriver(new FirefoxConfig());
             FirefoxDriver driver = new FirefoxDriver();
@@ -212,20 +199,6 @@ namespace SeleniumProject.BaseClasses
             IWebDriver driver = new ChromeDriver(GetChromeOptions());
             return driver;
         }
-
-        //private static IWebDriver GetIExplorerDriver()
-        //{
-        //    new DriverManager().SetUpDriver(new InternetExplorerConfig());
-        //    IWebDriver driver = new InternetExplorerDriver();
-        //    return driver;
-        //}
-
-        //private static IWebDriver GetEdgeDriver()
-        //{
-        //    new DriverManager().SetUpDriver(new EdgeConfig());
-        //    EdgeDriver driver = new EdgeDriver();
-        //    return driver;
-        //}
 
     }
 }
