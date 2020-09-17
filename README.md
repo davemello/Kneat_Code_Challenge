@@ -57,7 +57,7 @@ Defined from feature files
 ### Text
 Any text used
 
-###Waits
+### Waits
 Custom waits
 
 
