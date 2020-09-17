@@ -1,0 +1,5 @@
+2020/09/17-09:02:31.343 1f84 Reusing MANIFEST C:\Users\davem\AppData\Local\Google\Chrome\User Data\Profile 1\IndexedDB\https_www.letsgetchecked.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/09/17-09:03:49.180 31f0 Level-0 table #5: started
+2020/09/17-09:03:49.185 31f0 Level-0 table #5: 25481 bytes OK
+2020/09/17-09:03:49.187 31f0 Delete type=0 #3
+2020/09/17-09:03:49.187 31f0 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
