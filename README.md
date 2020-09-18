@@ -5,7 +5,7 @@
 
 Had to make a couple of changes to test data because at the time of scripting, one of the filter options (sauna) was not available. Changed this to Spa and Wellness center instead.
 
-Fully tested using Chrome, there is also an option for firefox (mainly to show extensibility)
+Fully tested using Chrome and Firefox
 
 Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
