@@ -7,7 +7,7 @@ Had to make a couple of changes to test data because at the time of scripting, o
 
 Fully tested using Chrome and Firefox
 
-Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
+Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatible WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
 
 Specflow tags can control what scenarios get executed. Can pass in Nunit parameter to execute certain tags
