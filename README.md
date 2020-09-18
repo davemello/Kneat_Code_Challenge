@@ -5,6 +5,8 @@
 
 Had to make a couple of changes to test data because at the time of scripting, one of the filter options (sauna) was not available. Changed this to Spa and Wellness center instead.
 
+Fully tested using Chrome, there is also an option for firefox (mainly to show extensibility)
+
 Framework uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
 
@@ -14,12 +16,12 @@ Default browser is set in the app.config file or if running Nunit through Jenkin
 
 BaseDefinition class is where all the Specflow Hooks to initialise tests are, including initialising the WebDriver and setting up Extent reporting.
 
-Extent Reports - index.html file will be created in bin/dubug folder. Screenshots taken on failure
+Extent Reports - index.html file will be created in bin/debug folder. Screenshots taken on failure
 
 ## Description of namespaces
 
 ### BrowserProfiles
-There are custom profiles for both Chrome and Firefox that can be used at run time. These contain the required cookies for Booking.com. At time of scripting the cookie notification popup was causing issues. Profile code has been commented out so framework will use a default instance.
+There is a custom profile for Chrome that can be used at run time. It contains the required cookies for Booking.com. In app.config set UseCustomProfile to true.
 
 ### ComponentHelper
 Wrapper class for common IWebElements and JavaScript executor. Contains logging.
