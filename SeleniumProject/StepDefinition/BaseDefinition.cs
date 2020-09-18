@@ -160,7 +160,7 @@ namespace SeleniumProject.BaseClasses
 
         private static void SetupExtentReports()
         {
-            _extentHtmlReporter = new ExtentHtmlReporter("TestResults.html");
+            _extentHtmlReporter = new ExtentHtmlReporter("TestResults");
             _extentHtmlReporter.LoadConfig("extent-config.xml");
             _extentReports = new ExtentReports();
             _extentReports.AttachReporter(_extentHtmlReporter);
@@ -168,14 +168,20 @@ namespace SeleniumProject.BaseClasses
 
         private static IWebDriver GetFirefoxDriver()
         {
+            
             //Custom profile with cookies for booking. com
-
-            //FirefoxProfile profile = new FirefoxProfile(@"\\BrowserProfiles\\Firefox");
-            //FirefoxOptions options = new FirefoxOptions
+            //FirefoxOptions options = new FirefoxOptions();
+            //if (ObjectRepository.Config.UseCustomProfile())
             //{
-            //   Profile = profile,
-            //   PageLoadStrategy = PageLoadStrategy.Eager
-            //};
+            //    options.Profile = new FirefoxProfile(@"\\BrowserProfiles\\Firefox");
+            //}
+
+            //options.PageLoadStrategy = PageLoadStrategy.Eager;
+            //FirefoxOptions options = new FirefoxOptions()
+            //{
+            //    Profile = new FirefoxProfile(@"\\BrowserProfiles\\Firefox")
+            // };
+
 
             new DriverManager().SetUpDriver(new FirefoxConfig());
             FirefoxDriver driver = new FirefoxDriver();
@@ -184,12 +190,17 @@ namespace SeleniumProject.BaseClasses
 
         private static ChromeOptions GetChromeOptions()
         {
-           //to use custom profile just uncomment arg line
+            //to use custom profile just uncomment arg line
             var options = new ChromeOptions();
             options.AddArgument("start-maximized");
-           // options.AddArgument("user-data-dir=\\BrowserProfiles\\Chrome");
-            
-           return options;
+
+            if (ObjectRepository.Config.UseCustomProfile())
+            {
+               options.AddArgument("user-data-dir=\\BrowserProfiles\\Chrome");
+            }
+
+
+            return options;
         }
 
         public static IWebDriver GetChromeDriver()

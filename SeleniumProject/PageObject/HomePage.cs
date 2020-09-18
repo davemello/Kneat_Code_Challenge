@@ -5,6 +5,7 @@ using SeleniumExtras.PageObjects;
 using SeleniumProject.BaseClasses;
 using SeleniumProject.ComponentHelper;
 using SeleniumProject.Extensions;
+using SeleniumProject.Settings;
 using SeleniumProject.Text;
 using SeleniumProject.Waits;
 using System;
@@ -50,24 +51,23 @@ namespace SeleniumProject.PageObject
         public void CheckForCookiePrefNotification()
         {
             JavaScriptExecutor.WaitForPageLoad(_driver);
-                //HaveCookiesBeenAccepted flag is set first time around if cookie notification is present
-            if (!HaveCookiesBeenAccepted)
+
+            try
             {
-                CustomWaits.Wait(2);
-                try
+                //set default implicit wait to 1sec just for cookie check
+                ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+                if (GenericHelper.IsElementPresent(By.Id("onetrust-banner-sdk")))
                 {
-                    CustomWaits.WaitForWebElementInPage(By.Id("onetrust-banner-sdk"), TimeSpan.FromSeconds(5));
-                    if (AcceptCookies.Displayed)
-                    {
-                        ButtonHelper.ClickButton(AcceptCookies, 1);
-                        HaveCookiesBeenAccepted = true;
-                    }
+                    ButtonHelper.ClickButton(AcceptCookies, 1);
                 }
-                catch (ElementNotVisibleException)
-                {
-                    Logger.Info("Cookie warning not present");
-                }
+                //set back to default value of 20
+                ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeout());
             }
+            catch (Exception)
+            {
+                Logger.Info("Cookie warning not present");
+            }
+
         }
 
         public void EnterSearchDetails()
@@ -113,14 +113,14 @@ namespace SeleniumProject.PageObject
             } while (isMonthNotEqual);
 
             ClickOnSelectedCalendarDay(day, nextDay);
-         }
+        }
 
         private void ClickOnSelectedCalendarDay(string day, string nextDay)
         {
             var calendarDay = _driver.FindElement(By.XPath($"//td[@data-bui-ref='calendar-date'][@data-date='2020-12-{day}']"));
             var calendarNextDay = _driver.FindElement(By.XPath($"//td[@data-bui-ref='calendar-date'][@data-date='2020-12-{nextDay}']"));
 
-            var classAttribute =  calendarDay.GetAttribute("class");
+            var classAttribute = calendarDay.GetAttribute("class");
             //if date has previously been selected then need to click away from initial date, then redo selection
             if (classAttribute.Contains("selected"))
             {
@@ -133,7 +133,7 @@ namespace SeleniumProject.PageObject
                 ButtonHelper.ClickButton(calendarDay);
                 ButtonHelper.ClickButton(calendarNextDay);
             }
-            
+
         }
     }
 }

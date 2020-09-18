@@ -19,8 +19,8 @@ namespace SeleniumProject.Configuration
 
         public BrowserType GetBrowser()
         {
-            //will look at passed in nunit parameters to get browser, if none the will use defaulf browser from app.config
-            var browser = TestContext.Parameters.Get("Browser", ConfigurationManager.AppSettings.Get(AppConfigKeys.Browser));
+            //will look at passed in nunit parameters to get browser, if none the will use default browser from app.config
+            var browser = TestContext.Parameters.Get("BROWSER", ConfigurationManager.AppSettings.Get(AppConfigKeys.Browser));
             return (BrowserType)Enum.Parse(typeof(BrowserType), browser);
 
         }
@@ -56,6 +56,11 @@ namespace SeleniumProject.Configuration
         public string GetWebsite()
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Website);
+        }
+
+        public bool UseCustomProfile()
+        {
+            return Boolean.Parse(ConfigurationManager.AppSettings.Get(AppConfigKeys.UseCustomProfile));
         }
     }
 }

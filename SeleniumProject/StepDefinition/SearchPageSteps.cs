@@ -17,7 +17,7 @@ namespace SeleniumProject.StepDefinition
         public void GivenUserNavigatesToWebSite()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            CustomAssert.AssertThatTextIsCorrect(RequiredText.TitleOfLandingPage, WindowHelper.GetTitle());
+            CustomAssert.AssertThatTextContainsExpectedString(RequiredText.TitleOfLandingPage, WindowHelper.GetTitle());
             HomePage.CheckForCookiePrefNotification();
         }
 
@@ -28,21 +28,7 @@ namespace SeleniumProject.StepDefinition
             HomePage.EnterSearchDetails();
         }
 
-        [When(@"User selects filter (.*)")]
-        public void ThenUserSelectsFilter(string filter)
-        {
-            FilterAndSelectPage.UseSpecifiedFilterToSearchForHotels(filter);
-        }
-
-
-
-        [Then(@"verifies that (.*) should appear in search results depending on IsListed is true or false (.*)")]
-        public void ThenVerifyThatShouldAppearInSearchResultsDependingOnIsListedIsTrueOrFalse(string hotelName, string isListed)
-        {
-            bool doesHotelMatchRule = FilterAndSelectPage.CheckHotelListForName(hotelName, isListed);
-            doesHotelMatchRule.Should().BeTrue();
-            FilterAndSelectPage.GoBackToHomePage();
-        }
+       
 
     }
 }

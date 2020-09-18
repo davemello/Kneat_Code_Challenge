@@ -51,7 +51,7 @@ namespace SeleniumProject.Waits
             var wait = new WebDriverWait(ObjectRepository.Driver, timeout)
             {
                 PollingInterval = TimeSpan.FromMilliseconds(500),
-                Timeout = TimeSpan.FromSeconds(50)
+                Timeout = TimeSpan.FromSeconds(20)
             };
             wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
             return wait;

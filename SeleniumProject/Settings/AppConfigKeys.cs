@@ -14,6 +14,7 @@ namespace SeleniumProject.Settings
         public const string PageLoadTimeout = "PageLoadTimeout";
         public const string ElementLoadTimeout = "ElementLoadTimeout";
         public const string DefaultWebDriverWait = "DefaultWebDriverWait";
+        public const string UseCustomProfile = "UseCustomProfile";
 
     }
 }

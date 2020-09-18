@@ -12,7 +12,7 @@ namespace SeleniumProject.BaseClasses
     public class BasePage
     {
         private readonly IWebDriver _driver;
-        protected static bool HaveCookiesBeenAccepted = false;
+        
         public string Title => _driver.Title;
         public static readonly ILog Logger = LogHelper.GetXmlLogger(typeof(BaseDefinition));
         public BasePage(IWebDriver driver)

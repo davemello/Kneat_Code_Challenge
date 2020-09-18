@@ -1,10 +1,13 @@
 ﻿using Newtonsoft.Json;
+using NUnit.Framework.Constraints;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumProject.BaseClasses;
 using SeleniumProject.ComponentHelper;
 using SeleniumProject.Extensions;
+using SeleniumProject.Settings;
+using SeleniumProject.Text;
 using System;
 using System.Collections.Generic;
 
@@ -17,10 +20,15 @@ namespace SeleniumProject.PageObject
         [FindsBy(How = How.XPath, Using = "//a[@class='hotel_name_link url']")]
         private readonly IList<IWebElement> ListOfHotelsDisplayed;
 
+        [FindsBy(How = How.XPath, Using = "//h3[@class='filtercategory-title'][contains(text(),'Star')]")]
+        private readonly IWebElement StarRatingHeader;
+
         public FilterAndSelectPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
         }
+
+
 
         public void UseSpecifiedFilterToSearchForHotels(string filter)
         {
@@ -42,7 +50,6 @@ namespace SeleniumProject.PageObject
                 var expandList = _driver.FindElement(By.XPath("//button[contains(text(),'Show all 13')]"), 5);
                 ButtonHelper.ClickButton(expandList);
                 //spa and wellness center
-                // var spaOption = _driver.FindElement(By.XPath("//div[@class='filteroptions']/descendant::a[@data-id='popular_activities-10']"), 5);
                 var spaOption = _driver.FindElement(By.XPath("//div[@id='filter_facilities']/descendant::a[@data-id='hotelfacility-54']"), 5);
                 CheckBoxHelper.CheckedCheckBox(spaOption);
             }
@@ -50,6 +57,18 @@ namespace SeleniumProject.PageObject
             {
                 Logger.Warn($"Element not found: {e}");
             }
+
+        }
+
+        public bool IsStarRatingPanelHeaderPresent()
+        {
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            if (StarRatingHeader.Displayed)
+            {
+                return true;
+            }
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeout());
+            return false;
 
         }
 
@@ -75,9 +94,6 @@ namespace SeleniumProject.PageObject
             }
 
             var starsCheckBox = _driver.FindElement(By.XPath($"//div[@class='filteroptions']/descendant::a[@data-id='class-{starRatingValue}']"), 5);
-
-            //var stars = _driver.FindElement(By.XPath("//*[@id='filter_class']/div[2]/a[3]/label/div"), 5);
-            //stars.Click();
             CheckBoxHelper.CheckedCheckBox(starsCheckBox);
         }
 
@@ -113,13 +129,13 @@ namespace SeleniumProject.PageObject
 
         public void GoBackToHomePage()
         {
-            BrowserHelper.GoBack();
-            BrowserHelper.GoBack();
+              //click on booking.com logo and ensure user returned to home page
+            do
+            {
+                var bookingLogo = _driver.FindElement(By.Id("logo_no_globe_new_logo"));
+                ButtonHelper.ClickButton(bookingLogo);
+            } while (!_driver.Title.Contains(RequiredText.TitleOfLandingPage));
         }
-
     }
-
-
-
 }
 

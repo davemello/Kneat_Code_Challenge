@@ -15,6 +15,8 @@ namespace SeleniumProject.Interfaces
 
         int GetDefaultWebDriveWaitTimeout();
 
+        bool UseCustomProfile();
+
 
     }
 }

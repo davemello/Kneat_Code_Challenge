@@ -81,26 +81,31 @@ namespace SeleniumProject.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.DescriptionAttribute("Search for hotels using specified search options")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        [NUnit.Framework.TestCaseAttribute("5 Star", "The Savoy Hotel", "True", null, TestName="Search for hotels using specified search options(5 Star,The Savoy Hotel,True)")]
-        [NUnit.Framework.TestCaseAttribute("5 Star", "George Limerick Hotel", "False", null, TestName="Search for hotels using specified search options(5 Star,George Limerick Hotel,Fal" +
-            "se)")]
-        [NUnit.Framework.TestCaseAttribute("Spa and wellness centre", "Clayton Hotel Limerick", "True", null, TestName="Search for hotels using specified search options(Spa and wellness centre,Clayton " +
-            "Hotel Limerick,True)")]
-        [NUnit.Framework.TestCaseAttribute("Spa and wellness centre", "George Limerick Hotel", "False", null, TestName="Search for hotels using specified search options(Spa and wellness centre,George L" +
-            "imerick Hotel,False)")]
-        public virtual void SearchForHotelsUsingSpecifiedSearchOptions(string selectFilter, string hotelName, string isListed, string[] exampleTags)
+        public virtual void FeatureBackground()
         {
-            string[] @__tags = new string[] {
-                    "smoke"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for hotels using specified search options", null, @__tags);
+#line 8
+#line hidden
 #line 9
+ testRunner.Given("User navigates to booking.com website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 10
+ testRunner.And("Enters default search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestCaseAttribute(TestName="Star Ratings panel is visible in filter options list")]
+        [NUnit.Framework.DescriptionAttribute("Star Ratings panel is visible in filter options list")]
+        [NUnit.Framework.CategoryAttribute("filterOptions")]
+        [NUnit.Framework.CategoryAttribute("all")]
+        public virtual void StarRatingsPanelIsVisibleInFilterOptionsList()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "filterOptions",
+                    "all"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Star Ratings panel is visible in filter options list", null, new string[] {
+                        "filterOptions",
+                        "all"});
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -120,18 +125,68 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
- testRunner.Given("User navigates to booking.com website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+this.FeatureBackground();
 #line hidden
-#line 11
- testRunner.And("Enters default search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.Then("Star Ratings should be visible in filter panel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.DescriptionAttribute("Search for hotels using specified search options")]
+        [NUnit.Framework.TestCaseAttribute("5 Star", "The Savoy Hotel", "True", new string[] {
+                "smoke",
+                "searchOptionTest",
+                "all"}, Category="smoke,searchOptionTest,all", TestName="Search for hotels using specified search options(5 Star,The Savoy Hotel,True)")]
+        [NUnit.Framework.TestCaseAttribute("5 Star", "George Limerick Hotel", "False", new string[] {
+                "searchOptionTest",
+                "all"}, Category="searchOptionTest,all", TestName="Search for hotels using specified search options(5 Star,George Limerick Hotel,Fal" +
+            "se)")]
+        [NUnit.Framework.TestCaseAttribute("Spa and wellness centre", "Clayton Hotel Limerick", "True", new string[] {
+                "searchOptionTest",
+                "all"}, Category="searchOptionTest,all", TestName="Search for hotels using specified search options(Spa and wellness centre,Clayton " +
+            "Hotel Limerick,True)")]
+        [NUnit.Framework.TestCaseAttribute("Spa and wellness centre", "George Limerick Hotel", "False", new string[] {
+                "searchOptionTest",
+                "all"}, Category="searchOptionTest,all", TestName="Search for hotels using specified search options(Spa and wellness centre,George L" +
+            "imerick Hotel,False)")]
+        [NUnit.Framework.TestCaseAttribute("4 Star", "The Savoy Hotel", "False", new string[] {
+                "searchOptionTest",
+                "all"}, Category="searchOptionTest,all", TestName="Search for hotels using specified search options(4 Star,The Savoy Hotel,False)")]
+        public virtual void SearchForHotelsUsingSpecifiedSearchOptions(string selectFilter, string hotelName, string isListed, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for hotels using specified search options", null, exampleTags);
+#line 16
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 17
  testRunner.When(string.Format("User selects filter {0}", selectFilter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
- testRunner.Then(string.Format("verifies that {0} should appear in search results depending on IsListed is true o" +
-                            "r false {1}", hotelName, isListed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 18
+ testRunner.Then(string.Format("{0} should appear in search results depending on IsListed is true or false {1}", hotelName, isListed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

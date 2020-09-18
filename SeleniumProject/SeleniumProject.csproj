@@ -540,6 +540,7 @@
     <Compile Include="CustomAssertions\CustomAssert.cs" />
     <Compile Include="CustomException\AutomationException.cs" />
     <Compile Include="CustomException\NoSuitableDriverFoundException.cs" />
+    <Compile Include="StepDefinition\FilterAndSelectPageSteps.cs" />
     <Compile Include="Waits\CustomWaits.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Logging\LogHelper.cs" />
@@ -1448,47 +1449,6 @@
     <None Include="BrowserProfiles\Chrome\Visited Links" />
     <None Include="BrowserProfiles\Chrome\Web Data" />
     <None Include="BrowserProfiles\Chrome\Web Data-journal" />
-    <None Include="BrowserProfiles\Firefox\addons.json" />
-    <None Include="BrowserProfiles\Firefox\addonStartup.json.lz4" />
-    <None Include="BrowserProfiles\Firefox\cert9.db" />
-    <None Include="BrowserProfiles\Firefox\compatibility.ini" />
-    <None Include="BrowserProfiles\Firefox\containers.json" />
-    <None Include="BrowserProfiles\Firefox\content-prefs.sqlite" />
-    <None Include="BrowserProfiles\Firefox\cookies.sqlite" />
-    <None Include="BrowserProfiles\Firefox\datareporting\archived\2020-09\1600339521023.7b50cf60-c6a1-4a55-bc38-f445d9257d14.new-profile.jsonlz4" />
-    <None Include="BrowserProfiles\Firefox\datareporting\archived\2020-09\1600339521048.489b4520-e554-411b-923f-f8407639a222.event.jsonlz4" />
-    <None Include="BrowserProfiles\Firefox\datareporting\archived\2020-09\1600339521056.a45b0d96-5b11-47f5-8059-5f307d3c918a.main.jsonlz4" />
-    <None Include="BrowserProfiles\Firefox\datareporting\archived\2020-09\1600339521059.d6a49f1c-222a-48e7-b258-86887d673fb8.first-shutdown.jsonlz4" />
-    <None Include="BrowserProfiles\Firefox\datareporting\session-state.json" />
-    <None Include="BrowserProfiles\Firefox\datareporting\state.json" />
-    <None Include="BrowserProfiles\Firefox\extension-preferences.json" />
-    <None Include="BrowserProfiles\Firefox\extensions.json" />
-    <None Include="BrowserProfiles\Firefox\favicons.sqlite" />
-    <None Include="BrowserProfiles\Firefox\formhistory.sqlite" />
-    <None Include="BrowserProfiles\Firefox\handlers.json" />
-    <None Include="BrowserProfiles\Firefox\key4.db" />
-    <None Include="BrowserProfiles\Firefox\parent.lock" />
-    <None Include="BrowserProfiles\Firefox\permissions.sqlite" />
-    <None Include="BrowserProfiles\Firefox\places.sqlite" />
-    <None Include="BrowserProfiles\Firefox\protections.sqlite" />
-    <None Include="BrowserProfiles\Firefox\saved-telemetry-pings\a45b0d96-5b11-47f5-8059-5f307d3c918a" />
-    <None Include="BrowserProfiles\Firefox\search.json.mozlz4" />
-    <None Include="BrowserProfiles\Firefox\sessionCheckpoints.json" />
-    <None Include="BrowserProfiles\Firefox\sessionstore.jsonlz4" />
-    <None Include="BrowserProfiles\Firefox\shield-preference-experiments.json" />
-    <None Include="BrowserProfiles\Firefox\storage.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\default\moz-extension+++f6ca9beb-2e8f-4128-a453-fe3b884c74aa^userContextId=4294967295\.metadata-v2" />
-    <None Include="BrowserProfiles\Firefox\storage\default\moz-extension+++f6ca9beb-2e8f-4128-a453-fe3b884c74aa^userContextId=4294967295\idb\3647222921wleabcEoxlt-eengsairo.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\.metadata-v2" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\1451318868ntouromlalnodry--epcr.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\1657114595AmcateirvtiSty.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\2823318777ntouromlalnodry--naod.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\2918063365piupsah.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\3561288849sdhlie.sqlite" />
-    <None Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\3870112724rsegmnoittet-es.sqlite" />
-    <None Include="BrowserProfiles\Firefox\times.json" />
-    <None Include="BrowserProfiles\Firefox\webappsstore.sqlite" />
-    <None Include="BrowserProfiles\Firefox\xulstore.json" />
     <None Include="FeatureFiles\NewSearchOptions.feature" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -1496,20 +1456,6 @@
     <Folder Include="BrowserProfiles\Chrome\blob_storage\7f616a93-30e2-4a33-8e21-4ae8b263cc07\" />
     <Folder Include="BrowserProfiles\Chrome\File System\000\t\" />
     <Folder Include="BrowserProfiles\Chrome\JumpListIconsRecentClosed\" />
-    <Folder Include="BrowserProfiles\Firefox\bookmarkbackups\" />
-    <Folder Include="BrowserProfiles\Firefox\crashes\events\" />
-    <Folder Include="BrowserProfiles\Firefox\extensions\" />
-    <Folder Include="BrowserProfiles\Firefox\minidumps\" />
-    <Folder Include="BrowserProfiles\Firefox\security_state\" />
-    <Folder Include="BrowserProfiles\Firefox\sessionstore-backups\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\default\moz-extension+++f6ca9beb-2e8f-4128-a453-fe3b884c74aa^userContextId=4294967295\idb\3647222921wleabcEoxlt-eengsairo.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\1451318868ntouromlalnodry--epcr.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\1657114595AmcateirvtiSty.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\2823318777ntouromlalnodry--naod.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\2918063365piupsah.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\3561288849sdhlie.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\permanent\chrome\idb\3870112724rsegmnoittet-es.files\" />
-    <Folder Include="BrowserProfiles\Firefox\storage\temporary\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
@@ -1560,12 +1506,6 @@
     <Content Include="BrowserProfiles\Chrome\Extensions\pkedcjkdefgpdelpbcmbmeomcjbeemfm\8520.615.0.5_0\mirroring_webrtc.js" />
     <Content Include="BrowserProfiles\Chrome\Google Profile.ico" />
     <Content Include="BrowserProfiles\Chrome\Service Worker\CacheStorage\0a6b15813c70948e5eabf8e0c6f903d090512e3b\index.txt" />
-    <Content Include="BrowserProfiles\Firefox\AlternateServices.txt" />
-    <Content Include="BrowserProfiles\Firefox\pkcs11.txt" />
-    <Content Include="BrowserProfiles\Firefox\prefs.js" />
-    <Content Include="BrowserProfiles\Firefox\SecurityPreloadState.txt" />
-    <Content Include="BrowserProfiles\Firefox\SiteSecurityServiceState.txt" />
-    <Content Include="BrowserProfiles\Firefox\TRRBlacklist.txt" />
     <Content Include="extent-config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
