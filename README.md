@@ -7,8 +7,12 @@ Had to make a couple of changes to test data because at the time of scripting, o
 
 Fully tested using Chrome, there is also an option for firefox (mainly to show extensibility)
 
-Framework uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
+Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
+
+Specflow tags can control what scenarios get executed. Can pass in Nunit parameter to execute certain tags
+
+    --where cat="smoke"
 
 Default browser is set in the app.config file or if running Nunit through Jenkins or via CLI then can pass in a test parameter
 
