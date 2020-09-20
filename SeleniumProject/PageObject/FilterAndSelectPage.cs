@@ -23,6 +23,9 @@ namespace SeleniumProject.PageObject
         [FindsBy(How = How.XPath, Using = "//h3[@class='filtercategory-title'][contains(text(),'Star')]")]
         private readonly IWebElement StarRatingHeader;
 
+       
+        
+
         public FilterAndSelectPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
@@ -58,6 +61,21 @@ namespace SeleniumProject.PageObject
                 Logger.Warn($"Element not found: {e}");
             }
 
+        }
+
+        internal List<string> GetListOfStarRatingOptions()
+        {
+
+            
+             var ListStarRatingFilters = _driver.FindElements(By.XPath("//div[@id='filter_class']/descendant::span[@class='filter_count']/preceding-sibling::span"));
+
+            List<string> listOfFilters = new List<string>();
+            foreach (IWebElement filter in ListStarRatingFilters)
+            {
+                listOfFilters.Add(filter.Text);
+            }
+
+            return listOfFilters;
         }
 
         public bool IsStarRatingPanelHeaderPresent()

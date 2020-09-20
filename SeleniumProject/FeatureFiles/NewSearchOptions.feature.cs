@@ -135,6 +135,58 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
+        [NUnit.Framework.TestCaseAttribute(TestName="Star Ratings panel contains correct filter options")]
+        [NUnit.Framework.DescriptionAttribute("Star Ratings panel contains correct filter options")]
+        [NUnit.Framework.CategoryAttribute("filterOptions")]
+        [NUnit.Framework.CategoryAttribute("all")]
+        public virtual void StarRatingsPanelContainsCorrectFilterOptions()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "filterOptions",
+                    "all"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Star Ratings panel contains correct filter options", null, new string[] {
+                        "filterOptions",
+                        "all"});
+#line 17
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FilterOption"});
+                table1.AddRow(new string[] {
+                            "3 stars"});
+                table1.AddRow(new string[] {
+                            "4 stars"});
+                table1.AddRow(new string[] {
+                            "5 stars"});
+                table1.AddRow(new string[] {
+                            "Unrated"});
+#line 18
+ testRunner.Then("Filter options are correct", ((string)(null)), table1, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [NUnit.Framework.DescriptionAttribute("Search for hotels using specified search options")]
         [NUnit.Framework.TestCaseAttribute("5 Star", "The Savoy Hotel", "True", new string[] {
                 "smoke",
@@ -159,7 +211,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for hotels using specified search options", null, exampleTags);
-#line 16
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -182,10 +234,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
 this.FeatureBackground();
 #line hidden
-#line 17
+#line 26
  testRunner.When(string.Format("User selects filter {0}", selectFilter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 27
  testRunner.Then(string.Format("{0} should appear in search results depending on IsListed is true or false {1}", hotelName, isListed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

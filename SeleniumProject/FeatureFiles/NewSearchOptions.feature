@@ -9,9 +9,18 @@ Background: Get to filter page
 	Given User navigates to booking.com website
 	And Enters default search criteria
 
-	@filterOptions @all
+@filterOptions @all
 Scenario: Star Ratings panel is visible in filter options list
 	Then Star Ratings should be visible in filter panel
+
+@filterOptions @all
+Scenario: Star Ratings panel contains correct filter options
+	Then Filter options are correct
+		| FilterOption |
+		| 3 stars       |
+		| 4 stars       |
+		| 5 stars       |
+		| Unrated      |
 
 Scenario: Search for hotels using specified search options
 	When User selects filter <SelectFilter>
