@@ -7,6 +7,28 @@ Had to make a couple of changes to test data because at the time of scripting, o
 
 Fully tested using Chrome and Firefox
 
+## Execution
+Clone repo into visual studio. VS should have Specflow and NUnit extension installed. Build solution, open test explorer and select tests
+
+OR
+
+Run from command line and NUnit console
+
+1. Open LOCATION_OF_REPOSITORY\packages\NUnitConsoleRunner3.11.1\tools
+2. Open cmd prompt
+3. Enter nunit3-console.exe [FULL LOCATION TO\SeleniumProject.dll] --testparam:BROWSER="Chrome" --where cat="smoke"
+    (BROWSER can also be "Firefox")
+    
+    List of tags: @smoke                        runs 1 single test
+                   @all                         runs all tests
+                   @searchOptionTest            only test for search options
+                   @filterOptions               test for verifying filter options
+
+
+
+
+
+
 Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatible WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
 
