@@ -15,18 +15,15 @@ OR
 Run from command line and NUnit console
 
 1. Open LOCATION_OF_REPOSITORY\packages\NUnitConsoleRunner3.11.1\tools
-2. Open cmd prompt
-3. Enter nunit3-console.exe [FULL LOCATION TO\SeleniumProject.dll] --testparam:BROWSER="Chrome" --where cat="smoke"
+1. Open cmd prompt
+1. Enter nunit3-console.exe [FULL LOCATION TO\SeleniumProject.dll] --testparam:BROWSER="Chrome" --where cat="smoke"
     (BROWSER can also be "Firefox")
     
-    List of tags: @smoke                        runs 1 single test
-                   @all                         runs all tests
-                   @searchOptionTest            only test for search options
-                   @filterOptions               test for verifying filter options
-
-
-
-
+List of tags: 
+* @smoke                       runs 1 single test
+* @all                         runs all tests
+* @searchOptionTest            only test for search options
+* @filterOptions               test for verifying filter options
 
 
 Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatible WebDriver is downloaded.
