@@ -5,9 +5,28 @@
 
 Had to make a couple of changes to test data because at the time of scripting, one of the filter options (sauna) was not available. Changed this to Spa and Wellness center instead.
 
-Fully tested using Chrome, there is also an option for firefox (mainly to show extensibility)
+Fully tested using Chrome and Firefox
 
-Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatable WebDriver is downloaded.
+## Execution
+Clone repo into visual studio. VS should have Specflow and NUnit extension installed. Build solution, open test explorer and select tests
+
+OR
+
+Run from command line and NUnit console
+
+1. Open LOCATION_OF_REPOSITORY\packages\NUnitConsoleRunner3.11.1\tools
+1. Open cmd prompt
+1. Enter nunit3-console.exe [FULL LOCATION TO\SeleniumProject.dll] --testparam:BROWSER="Chrome" --where cat="smoke"
+    (BROWSER can also be "Firefox")
+    
+List of tags: 
+* @smoke                       runs 1 single test
+* @all                         runs all tests
+* @searchOptionTest            only test for search options
+* @filterOptions               test for verifying filter options
+
+
+Framework is Specflow based and uses page object with page factory to keep code clean. DriverManager ensures that latest compatible WebDriver is downloaded.
 Reporting is done by Extent reports, logging from log4net and asserts from fluentAssert for readability
 
 Specflow tags can control what scenarios get executed. Can pass in Nunit parameter to execute certain tags
