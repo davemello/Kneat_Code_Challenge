@@ -55,10 +55,16 @@ namespace SeleniumProject.PageObject
             try
             {
                 //set default implicit wait to 1sec just for cookie check
-                ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+                ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
                 if (GenericHelper.IsElementPresent(By.Id("onetrust-banner-sdk")))
                 {
-                    ButtonHelper.ClickButton(AcceptCookies, 1);
+                    ButtonHelper.ClickButton(AcceptCookies, 3);
+
+                    if (AcceptCookies.Displayed)
+                    {
+                        ButtonHelper.ClickButton(AcceptCookies, 3);
+                    }
+                    CustomWaits.Wait(1);
                 }
                 //set back to default value of 20
                 ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeout());
