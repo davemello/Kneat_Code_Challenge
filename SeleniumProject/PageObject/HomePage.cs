@@ -58,6 +58,7 @@ namespace SeleniumProject.PageObject
                 ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
                 if (GenericHelper.IsElementPresent(By.Id("onetrust-banner-sdk")))
                 {
+                   
                     CustomWaits.Wait(1);
                     ButtonHelper.ClickButton(AcceptCookies, 3);
                     

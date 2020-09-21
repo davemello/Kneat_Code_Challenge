@@ -74,6 +74,12 @@ namespace SeleniumProject.Waits
             return element;
         }
 
+        public static void WaitUntilElementIsNotVisible(IWebDriver driver, By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(drv => !drv.FindElement(locator).Displayed);
+        }
+
         private static Func<IWebDriver, bool> WaitForWebElementFunc(By locator)
         {
             return ((x) => x.FindElements(locator).Count == 1);
